@@ -588,22 +588,7 @@ public class ReaderFragment extends Fragment implements MainActivity.SearchListe
         if (view.pluginview == null) {
             fontsFrame.setVisibility(View.VISIBLE);
             fontsList.setAdapter(fonts);
-            List<File> files = new ArrayList<>();
-            for (String f : enumerateFonts().keySet()) {
-                files.add(new File(f));
-            }
-            AndroidFontUtil.ourFileSet = new TreeSet<>();
-            AndroidFontUtil.ourFontFileMap = new ZLTTFInfoDetector().collectFonts(files);
-            fonts.addBasics();
-            for (String s : AndroidFontUtil.ourFontFileMap.keySet()) {
-                File[] ff = AndroidFontUtil.ourFontFileMap.get(s);
-                for (File f : ff) {
-                    if (f != null) {
-                        fonts.ff.add(new FontView(s, f));
-                        break; // regular first
-                    }
-                }
-            }
+            loadFonts();
         } else {
             fontsFrame.setVisibility(View.GONE);
         }
@@ -619,6 +604,38 @@ public class ReaderFragment extends Fragment implements MainActivity.SearchListe
         });
 
         return v;
+    }
+
+    private void loadFonts() {
+        final List<File> files = new ArrayList<>();
+        fonts.addBasics();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (String f : enumerateFonts().keySet()) {
+                    files.add(new File(f));
+                }
+                AndroidFontUtil.ourFileSet = new TreeSet<>();
+                AndroidFontUtil.ourFontFileMap = new ZLTTFInfoDetector().collectFonts(files);
+                fontsFrame.post(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        for (String s : AndroidFontUtil.ourFontFileMap.keySet()) {
+                            File[] ff = AndroidFontUtil.ourFontFileMap.get(s);
+                            for (File f : ff) {
+                                if (f != null) {
+                                    fonts.ff.add(new FontView(s, f));
+                                    break; // regular first
+                                }
+                            }
+                        }
+                        fonts.notifyDataSetChanged();
+                    }
+                });
+            }
+        }).start();
     }
 
     void updateToolbar() {
