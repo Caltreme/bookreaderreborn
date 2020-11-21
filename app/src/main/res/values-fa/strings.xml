@@ -63,4 +63,5 @@
     <string name="sort_by_opened_desc">باز شده نزولی</string>
     <string name="tts_default">System Default</string>
     <string name="pref_tts_title">TTS Language</string>
+    <string name="pref_theme_background_white">زمینه سفید</string>
 </resources>

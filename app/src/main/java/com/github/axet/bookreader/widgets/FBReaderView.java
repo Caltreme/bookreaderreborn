@@ -94,7 +94,6 @@ import org.geometerplus.zlibrary.text.model.ZLTextModel;
 import org.geometerplus.zlibrary.text.view.ZLTextControlElement;
 import org.geometerplus.zlibrary.text.view.ZLTextElement;
 import org.geometerplus.zlibrary.text.view.ZLTextElementArea;
-import org.geometerplus.zlibrary.text.view.ZLTextElementAreaVector;
 import org.geometerplus.zlibrary.text.view.ZLTextFixedPosition;
 import org.geometerplus.zlibrary.text.view.ZLTextHighlighting;
 import org.geometerplus.zlibrary.text.view.ZLTextHyperlink;
@@ -106,7 +105,6 @@ import org.geometerplus.zlibrary.text.view.ZLTextPosition;
 import org.geometerplus.zlibrary.text.view.ZLTextRegion;
 import org.geometerplus.zlibrary.text.view.ZLTextSimpleHighlighting;
 import org.geometerplus.zlibrary.text.view.ZLTextView;
-import org.geometerplus.zlibrary.text.view.ZLTextWord;
 import org.geometerplus.zlibrary.text.view.ZLTextWordCursor;
 import org.geometerplus.zlibrary.text.view.ZLTextWordRegionSoul;
 import org.geometerplus.zlibrary.ui.android.view.ZLAndroidPaintContext;
@@ -1115,7 +1113,11 @@ public class FBReaderView extends RelativeLayout {
         } else {
             config.setValue(app.ViewOptions.ColorProfileName, ColorProfile.DAY);
             ColorProfile p = ColorProfile.get(ColorProfile.DAY);
-            config.setValue(p.BackgroundOption, 0xF5E5CC);
+            int readerBackgroundColor = 0xF5E5CC;
+            if (shared.getBoolean(BookApplication.PREFERENCE_READER_BACKGROUND_WHITE, false)) {
+                readerBackgroundColor = 0xffffff;
+            }
+            config.setValue(p.BackgroundOption, readerBackgroundColor);
             config.setValue(p.WallpaperOption, "");
         }
     }

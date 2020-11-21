@@ -18,6 +18,7 @@ import com.github.axet.bookreader.R;
 import com.github.axet.bookreader.app.BookApplication;
 import com.github.axet.bookreader.app.Storage;
 import com.github.axet.bookreader.widgets.RotatePreferenceCompat;
+import com.github.axet.bookreader.widgets.WhiteBackgroundPreferenceCompat;
 
 public class SettingsActivity extends AppCompatSettingsThemeActivity {
     public static final int RESULT_STORAGE = 1;
@@ -72,6 +73,7 @@ public class SettingsActivity extends AppCompatSettingsThemeActivity {
 
             bindPreferenceSummaryToValue(findPreference(BookApplication.PREFERENCE_SCREENLOCK));
             bindPreferenceSummaryToValue(findPreference(BookApplication.PREFERENCE_THEME));
+            bindPreferenceSummaryToValue(findPreference(BookApplication.PREFERENCE_READER_BACKGROUND_WHITE));
             bindPreferenceSummaryToValue(findPreference(BookApplication.PREFERENCE_VIEW_MODE));
 
             StoragePathPreferenceCompat s = (StoragePathPreferenceCompat) findPreference(BookApplication.PREFERENCE_STORAGE);
@@ -90,6 +92,8 @@ public class SettingsActivity extends AppCompatSettingsThemeActivity {
             super.onResume();
             RotatePreferenceCompat r = (RotatePreferenceCompat) findPreference(BookApplication.PREFERENCE_ROTATE);
             r.onResume();
+            WhiteBackgroundPreferenceCompat w = (WhiteBackgroundPreferenceCompat) findPreference(BookApplication.PREFERENCE_READER_BACKGROUND_WHITE);
+            w.onResume();
         }
 
         @Override
