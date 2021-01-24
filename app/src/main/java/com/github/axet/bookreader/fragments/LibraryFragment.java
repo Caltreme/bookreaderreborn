@@ -529,7 +529,7 @@ public class LibraryFragment extends Fragment implements MainActivity.SearchList
         holder.footer.setVisibility(View.GONE);
 
         final MainActivity main = (MainActivity) getActivity();
-        main.toolbar.setTitle(R.string.app_name);
+        main.getSupportActionBar().setTitle(R.string.app_name);
         holder.grid.setAdapter(books);
         holder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
