@@ -4,7 +4,7 @@ stages:
   - deploy
 
 include:
-  - remote: 'https://jobs.r2devops.io/latest/pages.yml?scope=0.yml'
+  - remote: 'https://jobs.r2devops.io/latest/pages.yml'
 
 pages:
   variables:
