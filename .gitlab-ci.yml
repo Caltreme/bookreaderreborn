@@ -1,9 +1,11 @@
+# Job from R2Devops hub --> r2devops.io
+
+stages:
+  - deploy
+
+include:
+  - remote: 'https://jobs.r2devops.io/latest/pages.yml'
+
 pages:
-  stage: deploy
-  script:
-  - echo 'Nothing to do...'
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
+  variables:
+    PAGES_BUILD_PATH: "public"
