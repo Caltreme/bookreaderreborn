@@ -5,7 +5,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.2'
+        classpath 'com.android.tools.build:gradle:3.5.4'
         classpath 'digital.wup:android-maven-publish:3.6.2'
     }
 }
@@ -26,8 +26,7 @@ apply plugin: 'digital.wup.android-maven-publish' // 'gradle publishToMavenLocal
 evaluationDependsOn(":app")
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 30
 
     defaultConfig {
         minSdkVersion 9
@@ -132,4 +131,3 @@ project.afterEvaluate {
         dependencies.add("api", artifact.moduleVersion.id.toString())
     }
 }
-
