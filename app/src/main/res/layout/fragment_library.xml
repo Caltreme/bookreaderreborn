@@ -3,8 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     tools:context="com.github.axet.bookreader.fragments.LibraryFragment">
 
     <include
@@ -16,7 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/library_header"
+        android:clipToPadding="false"
         android:numColumns="4"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="16dp"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="16dp"
         android:scrollbars="vertical"
         android:stretchMode="columnWidth"
         android:verticalSpacing="2dp" />
