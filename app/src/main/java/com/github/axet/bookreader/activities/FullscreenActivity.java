@@ -45,12 +45,12 @@ public class FullscreenActivity extends AppCompatFullscreenThemeActivity {
 
     @Override
     public int getAppTheme() {
-        return BookApplication.getTheme(this, R.style.AppThemeLight_NoActionBar, R.style.AppThemeDark_NoActionBar);
+        return BookApplication.getTheme(this, R.style.AppThemeLight_NoActionBar, R.style.AppThemeDark_NoActionBar, R.style.AppThemeDarkBlack_NoActionBar);
     }
 
     @Override
     public int getAppThemePopup() {
-        return BookApplication.getTheme(this, R.style.AppThemeLight_PopupOverlay, R.style.AppThemeDark_PopupOverlay);
+        return BookApplication.getTheme(this, R.style.AppThemeLight_PopupOverlay, R.style.AppThemeDark_PopupOverlay, R.style.AppThemeDarkBlack_PopupOverlay);
     }
 
     @SuppressLint({"InlinedApi", "RestrictedApi"})

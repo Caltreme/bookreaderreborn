@@ -34,7 +34,7 @@ public class SettingsActivity extends AppCompatSettingsThemeActivity {
 
     @Override
     public int getAppTheme() {
-        return BookApplication.getTheme(this, R.style.AppThemeLight, R.style.AppThemeDark);
+        return BookApplication.getTheme(this, R.style.AppThemeLight, R.style.AppThemeDark, R.style.AppThemeDarkBlack);
     }
 
     @Override
