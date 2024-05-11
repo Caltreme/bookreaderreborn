@@ -818,7 +818,7 @@ public class Storage extends com.github.axet.androidlibrary.app.Storage {
         if (s.equals(ContentResolver.SCHEME_FILE) && relative(storage.getPath(), u.getPath()) != null)
             return new Book(context, u);
 
-        boolean tmp = false;
+        boolean tmp = false; // need tmp files because of md5 calulcation, before saf:// saves
         File file = null;
 
         final Book book = new Book();
@@ -827,7 +827,7 @@ public class Storage extends com.github.axet.androidlibrary.app.Storage {
 
             if (u.getScheme().equals(ContentResolver.SCHEME_FILE)) {
                 file = Storage.getFile(u);
-            } else {
+            } else { // Reasons we need storage: 1) we have to copy books opened as attachments
                 file = createTempBook("tmp");
                 os = new FileOutputStream(file);
                 os = new BufferedOutputStream(os);
@@ -841,9 +841,9 @@ public class Storage extends com.github.axet.androidlibrary.app.Storage {
             for (FileTypeDetector.Detector d : dd) {
                 if (d.detected) {
                     book.ext = d.ext;
-                    if (d instanceof FileTypeDetector.FileTypeDetectorZipExtract.Handler) {
+                    if (d instanceof FileTypeDetector.FileTypeDetectorZipExtract.Handler) { // 2) extract fb2.zip files
                         FileTypeDetector.FileTypeDetectorZipExtract.Handler e = (FileTypeDetector.FileTypeDetectorZipExtract.Handler) d;
-                        if (!tmp) { // !tmp
+                        if (!tmp) {
                             File z = file;
                             file = createTempBook("tmp");
                             book.md5 = e.extract(z, file);
@@ -866,7 +866,7 @@ public class Storage extends com.github.axet.androidlibrary.app.Storage {
                 File cbz = null;
                 try {
                     final Archive archive = new Archive(new NativeStorage(file));
-                    if (archive.getMainHeader().isSolid()) {
+                    if (archive.getMainHeader().isSolid()) { // 3) copy solid rar archives, to let open arbitrary file/page
                         cbz = createTempBook("tmp");
                         OutputStream zos = new FileOutputStream(cbz);
                         zos = new BufferedOutputStream(zos);
