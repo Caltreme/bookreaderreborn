@@ -475,7 +475,7 @@ public class TTSPopup {
             }
 
             @Override
-            public void onError(String utteranceId, Runnable done) {
+            public void onError(String utteranceId) {
                 Log.d(TAG, "onError");
                 if (!fragment.isEmpty() && fragment.retry < 2) {
                     dones.remove(delayed);
@@ -490,14 +490,14 @@ public class TTSPopup {
                         }
                     });
                 } else {
-                    done.run(); // speakNext
+                    super.onError(utteranceId); // speakNext
                 }
             }
 
             @Override
-            public void onDone(String utteranceId, Runnable done) {
+            public void onDone(String utteranceId) {
                 Log.d(TAG, "onDone");
-                super.onDone(utteranceId, done);
+                super.onDone(utteranceId);
             }
         };
         tts.ttsCreate();
