@@ -671,10 +671,10 @@ public class Storage extends com.github.axet.androidlibrary.app.Storage {
                 path = getDocumentName(context, u);
             else
                 path = Storage.getDocumentChildPath(u);
-            Uri o = createFile(context, root, path);
-            ContentResolver resolver = context.getContentResolver();
             ParcelFileDescriptor fd;
+            ContentResolver resolver = context.getContentResolver();
             try {
+                Uri o = createFile(context, root, path);
                 fd = resolver.openFileDescriptor(o, "rw");
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
