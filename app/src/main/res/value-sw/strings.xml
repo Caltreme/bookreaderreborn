@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Soma Vitabu</string>
+
+    <string-array name="theme_text">
+        <item>Sura nyeupe</item>
+        <item>Sura nyeusi</item>
+    </string-array>
+
+    <string-array name="viewmode_text">
+        <item>@string/uonyesho_wa_ukurasa</item>
+        <item>@string/uonyesho_wa_biringiza</item>
+    </string-array>
+
+    <string name="loading_book">Kitabu inapakiwa</string>
+    <string name="open_file">Fungua faili</string>
+    <string name="catalog_home">Mwanzo</string>
+    <string name="book_toc">Yaliyomo</string>
+    <string name="search">Tafuta</string>
+    <string name="book_rename">Badilisha jina</string>
+    <string name="book_open">Fungua</string>
+    <string name="book_delete">Futa</string>
+    <string name="my_readings">Somo yango</string>
+    <string name="search_local">Tafuta kwa kitabu&#8230;</string>
+    <string name="search_book">Tafuta vitabu&#8230;</string>
+    <string name="view_mode_continuous">Uonyesho wa biringiza</string>
+    <string name="view_mode_paging">Uonyesho wa ukurasa</string>
+
+    <string name="pref_rotate_title">Zungusha</string>
+    <string name="pref_rotate_summary">Wezesha skrini kuzungusha</string>
+    <string name="pref_theme_title">Mandhari</string>
+    <string name="pref_storagepath_title">Landisha kabrasha</string>
+    <string name="pref_storagepath_summary">Hujachagua \'Kabrasha ya kulandisha\'</string>
+    <string name="pref_volume_title">Vibonye vya Sauti Vinasogea</string>
+    <string name="pref_volume_summary">Tumia vibonye vya sauti kusogea kurasa</string>
+
+    <string name="continue_reading">Endelea kusoma kutoka:</string>
+    <string name="sync_conflict">Mapambano ya kulandisha</string>
+    <string name="view_mode">Hali ya kusoma</string>
+    <string name="image_original_size">Ukubwa awali</string>
+    <string name="image_fit_to_screen">Ukubwa wa uonyesho</string>
+    <string name="image_original_size_all_images">Picha zote kwa ukubwa awali</string>
+    <string name="image_fit_to_screen_all_images">Picha zote kwa ukubwa wa uonyesho</string>
+    <string name="keep_reading_position">Hifadhi pahali</string>
+    <string name="add_more_fonts_to">Ongeza fonti kwa \'%s\'</string>
+    <string name="controls_fullscreen">Tumia uonyesho yote</string>
+    <string name="controls_navigate">Abiri</string>
+    <string name="controls_nextpage">Mbele</string>
+    <string name="controls_prevpage">Nyuma</string>
+    <string name="controls_brightness">Ung'avu</string>
+    <string name="per_second">/nukta</string>
+    <string name="delete_bookmark">Futa kariri hifadhi</string>
+    <string name="bookmarks">Kariri hifadhi</string>
+    <string name="bookmark_edit">Hariri</string>
+    <string name="book_font">Fonti</string>
+    <string name="sort_by">Utaratibu wa kupanga ...</string>
+    <string name="sort_by_name_a_z">Jina A-Z</string>
+    <string name="sort_by_name_z_a">Jina Z-A</string>
+    <string name="sort_by_added_asc">Tarehe ya kuipata ya kwanza</string>
+    <string name="sort_by_added_desc">Tarehe ya kuipata ya mwisho</string>
+    <string name="sort_by_opened_asc">Tarehe ya kufungua ya kwanza</string>
+    <string name="sort_by_opened_desc">Tarehe ya kufungua ya mwisho</string>
+    <string name="pref_tts_title">Kifaa kitasoma kwa</string>
+</resources>
