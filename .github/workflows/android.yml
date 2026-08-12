@@ -22,7 +22,7 @@ jobs:
         cache: gradle
 
     - name: Dar permisos de ejecución al Gradle Wrapper
-      run: chmod +x gradlew
+      run: chmod +x gradlew || true
 
     - name: Compilar APK (Build)
-      run: ./gradlew assembleDebug
+      run: bash ./gradlew assembleDebug
