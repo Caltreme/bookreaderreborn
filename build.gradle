@@ -1,22 +1,17 @@
-buildscript {
-    repositories {
-        mavenLocal()
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.1'
-    }
-}
+android {
+    namespace 'com.github.axet.bookreader'
+    compileSdk 35
 
-allprojects {
-    repositories {
-        mavenLocal()
-        google()
-        jcenter()
+    defaultConfig {
+        applicationId "com.github.axet.bookreader"
+        minSdk 21  // o superior, 21 es un buen estándar actual
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
     }
-}
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
 }
