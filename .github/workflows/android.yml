@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout del código
-      uses: actions/checkout@v4
+    - name: Checkout del código con submódulos
+      uses: actions/checkout@v5
+      with:
+        submodules:recursive  # <--- esta linea clona las librerias vinculadas
 
     - name: Configurar Java JDK 17
       uses: actions/setup-java@v5
