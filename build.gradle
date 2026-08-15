@@ -1,17 +1,21 @@
-android {
-    namespace 'com.github.axet.bookreader'
-    compileSdk 35
-
-    defaultConfig {
-        applicationId "com.github.axet.bookreader"
-        minSdk 21  // o superior, 21 es un buen estándar actual
-        targetSdk 35
-        versionCode 1
-        versionName "1.0"
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
     }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+    dependencies {
+        // Plugin de Android para Gradle
+        classpath 'com.android.tools.build:gradle:8.2.2'
     }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
