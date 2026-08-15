@@ -2,18 +2,55 @@ apply plugin: 'com.android.application'
 
 android {
     namespace 'com.github.axet.bookreader'
-    compileSdk 35
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.github.axet.bookreader"
         minSdk 21
-        targetSdk 35
-        versionCode 1
-        versionName "1.0"
+        targetSdk 34
+        versionCode 416
+        versionName "1.15.3"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES']
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    
+    // Dependencias originales del proyecto de Axet
+    implementation 'com.github.axet:android-library:1.35.27'
+    implementation ('com.github.axet.fbreader:library:0.1.18') {
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
+    implementation 'com.github.axet:djvulibre:0.1.4'
+    implementation 'com.github.axet:pdfium:2.0.16'
+    implementation 'com.github.axet:k2pdfopt:0.1.6'
+    implementation ('com.github.axet:wget:1.7.0') { 
+        exclude group: 'org.json' 
+    }
+
+    // Compatibilidad moderna
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
 }
